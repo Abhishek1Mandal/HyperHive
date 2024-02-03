@@ -1,53 +1,25 @@
-import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import NavBarLogics from "./Logics/NavBarLogics";
+import MainBody from "./Pages/MainBody";
 
-import Img from "../Components/img/avatar-7.jpg";
-
-import ComponentNotification from "../Components/Pages/Notification";
-import UserMiniProfile from "../Components/Pages/UserMiniProfile";
-import SideNavbarComponents from "../Components/Pages/SideNavbarComponents";
+import Img1 from "../Components/img/avatar-1.jpg";
 
 export default function Navbar() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
-  const [isDrawerOpen, setIsDrawerOpen] = useState(true);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const notificationRef = useRef<HTMLDivElement>(null);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
-  const toggleNotification = () => {
-    setIsNotificationOpen(!isNotificationOpen);
-    setIsDropdownOpen(false); // Close dropdown when opening notification
-  };
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-    setIsNotificationOpen(false); // Close notification when opening dropdown
-  };
-
-  const toggleDrawer = () => {
-    setIsDrawerOpen(!isDrawerOpen);
-    setIsSidebarOpen(!isSidebarOpen); // Toggle sidebar state
-  };
-
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (
-        notificationRef.current &&
-        !notificationRef.current.contains(event.target as Node) &&
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setIsNotificationOpen(false);
-        setIsDropdownOpen(false);
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  const {
+    isDropdownOpen,
+    isNotificationOpen,
+    isDropdownDashOpen,
+    isDropdownEcommerceOpen,
+    isDrawerOpen,
+    isSidebarOpen,
+    notificationRef,
+    dropdownRef,
+    toggleNotification,
+    toggleDropdown,
+    toggleDrawer,
+    toggleDropdownDash,
+    toggleDropdownEcommerce,
+  } = NavBarLogics();
 
   return (
     <>
@@ -144,7 +116,69 @@ export default function Navbar() {
                       isSidebarOpen ? "right-[21rem]" : "right-[5rem]"
                     }`}
                   >
-                    <ComponentNotification />
+                    <div className="flex px-4 py-3" role="none">
+                      <h5 className="text-gray-900 dark:text-white" role="none">
+                        Notification
+                      </h5>
+                      <div className="absolute right-2">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          className="feather feather-settings me-1 icon-xs text-gray-600"
+                        >
+                          <circle cx="12" cy="12" r="3"></circle>
+                          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <ul className="py-1" role="none">
+                      <li>
+                        <Link
+                          to="#"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                          role="menuitem"
+                        >
+                          Dashboard
+                        </Link>
+                      </li>
+
+                      <li>
+                        <Link
+                          to="#"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                          role="menuitem"
+                        >
+                          Settings
+                        </Link>
+                      </li>
+
+                      <li>
+                        <Link
+                          to="#"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                          role="menuitem"
+                        >
+                          Earnings
+                        </Link>
+                      </li>
+
+                      <li>
+                        <Link
+                          to="#"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                          role="menuitem"
+                        >
+                          Sign out
+                        </Link>
+                      </li>
+                    </ul>
                   </div>
                 )}
               </div>
@@ -157,11 +191,7 @@ export default function Navbar() {
                   onClick={toggleDropdown}
                 >
                   <span className="sr-only">Open user menu</span>
-                  <img
-                    className="w-8 h-8 rounded-full"
-                    src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                    alt="user photo"
-                  />
+                  <img className="w-8 h-8 rounded-full" src={Img1} alt="" />
                 </button>
 
                 {isDropdownOpen && (
@@ -171,7 +201,119 @@ export default function Navbar() {
                       isSidebarOpen ? "right-[18rem]" : "right-[2rem]"
                     }`}
                   >
-                    <UserMiniProfile />
+                    <div className="px-4 py-3" role="none">
+                      <p
+                        className="text-sm text-gray-900 dark:text-white"
+                        role="none"
+                      >
+                        Neil Sims
+                      </p>
+                      <p
+                        className="text-sm font-medium text-gray-900 truncate dark:text-gray-300"
+                        role="none"
+                      >
+                        neil.sims@flowbite.com
+                      </p>
+                    </div>
+                    <ul className="py-1" role="none">
+                      <li>
+                        <Link
+                          className="flex px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white dropdown-item d-flex align-items-center"
+                          to="#"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            className="feather pt-2 text-gray-500 feather-user me-2 icon-xxs dropdown-item-icon"
+                          >
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                          </svg>
+                          <p className="pt-2">Edit Profile</p>
+                        </Link>
+                      </li>
+
+                      <li>
+                        <Link
+                          className="flex py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white dropdown-item d-flex align-items-center"
+                          to="#"
+                        >
+                          <p className="pl-[2px]"></p>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            className="feather text-gray-500 feather-activity me-2 icon-xxs dropdown-item-icon"
+                          >
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                          </svg>
+                          <p className="pl-[4px]">Activity Log</p>
+                        </Link>
+                      </li>
+
+                      <li>
+                        <Link
+                          className="flex px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white dropdown-item d-flex align-items-center"
+                          to="#"
+                        >
+                          <p className="pl-[2px]"></p>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="15"
+                            height="17"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            className="feather text-gray-500 feather-settings me-2 icon-xxs dropdown-item-icon"
+                          >
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                          </svg>
+                          <p className="pl-[5px]"></p>Settings
+                        </Link>
+                      </li>
+
+                      <li>
+                        <Link
+                          className="flex px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white dropdown-item d-flex align-items-center"
+                          to="#"
+                        >
+                          <p className="pl-[2px]"></p>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            className="feather text-gray-500 feather-power me-2 icon-xxs dropdown-item-icon"
+                          >
+                            <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
+                            <line x1="12" y1="2" x2="12" y2="12"></line>
+                          </svg>
+                          <p className="pl-[5px]"></p>Sign Out
+                        </Link>
+                      </li>
+                    </ul>
                   </div>
                 )}
               </div>
@@ -188,328 +330,351 @@ export default function Navbar() {
         tabIndex={-1}
         aria-labelledby="drawer-navigation-label"
       >
-        <SideNavbarComponents />
+        <div className="bg-gray-50">
+          <ul className="space-y-2 font-medium">
+            <div className="p-[2%]">
+              <Link to="https://github.com/Abhishek1Mandal" className="flex">
+                <img
+                  className="w-8 h-8 rounded-full ml-[6px]"
+                  src={Img1}
+                  alt=""
+                />
+                <span className="self-center ml-[12px] text-xl font-semibold sm:text-1xl whitespace-nowrap dark:text-white">
+                  Abhishek1Mandal
+                </span>
+              </Link>
+            </div>
+
+            <div className="w-full h-0.5 bg-gray-400"></div>
+
+            <li>
+              <div>
+                <Link
+                  className={`flex px-4 py-2 text-sm bg-gray-100 rounded-md text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white dropdown-item d-flex align-items-center ${
+                    isDropdownDashOpen ? "open" : ""
+                  }`}
+                  to="#!"
+                  onClick={toggleDropdownDash}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="feather feather-home nav-icon me-2 icon-xxs"
+                  >
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  </svg>
+                  Dashboard
+                  <div className="absolute right-8">
+                    {isDropdownDashOpen ? (
+                      <svg
+                        className="w-5 h-4 text-gray-800 dark:text-white"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="1"
+                          d="m5 15 7-7 7 7"
+                        />
+                      </svg>
+                    ) : (
+                      <svg
+                        className="w-5 h-4 text-gray-800 dark:text-white"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="1"
+                          d="m19 9-7 7-7-7"
+                        />
+                      </svg>
+                    )}
+                  </div>
+                </Link>
+              </div>
+              {isDropdownDashOpen && (
+                <ul className="space-y-0 font-medium mt-2">
+                  <li>
+                    <Link
+                      to="#"
+                      className="flex items-center text-sm w-full p-2 text-gray-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-600"
+                    >
+                      Analytics
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      to="#"
+                      className="flex items-center text-sm w-full p-2 text-gray-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-600"
+                    >
+                      Project
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      to="#"
+                      className="flex items-center text-sm w-full p-2 text-gray-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-600"
+                    >
+                      Ecommerce
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      to="#"
+                      className="flex items-center text-sm w-full p-2 text-gray-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-600"
+                    >
+                      CRM
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      to="#"
+                      className="flex items-center text-sm w-full p-2 text-gray-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-600"
+                    >
+                      Finance
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      to="#"
+                      className="flex items-center text-sm w-full p-2 text-gray-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-600"
+                    >
+                      Blog
+                    </Link>
+                  </li>
+                </ul>
+              )}
+            </li>
+
+            <li>
+              <div className="ml-3">Apps</div>
+            </li>
+
+            <li>
+              <Link
+                className="flex px-4 py-2 text-sm rounded-lg text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white dropdown-item d-flex align-items-center"
+                to="#"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  className="feather text-gray-500 feather-home nav-icon me-2 icon-xxs"
+                >
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>{" "}
+                Calendar
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                className="flex px-4 py-2 text-sm rounded-lg text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white dropdown-item d-flex align-items-center"
+                to="#"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  className="feather text-gray-500 feather-message-square nav-icon me-2 icon-xxs"
+                >
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>{" "}
+                Chat
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <div>
+                <Link
+                  className={`flex px-4 py-2 text-sm rounded-lg text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white dropdown-item d-flex align-items-center ${
+                    isDropdownEcommerceOpen ? "open" : ""
+                  }`}
+                  to="#"
+                  onClick={toggleDropdownEcommerce}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    className="feather text-gray-500 feather-shopping-cart nav-icon me-2 icon-xxs"
+                  >
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </svg>{" "}
+                  Ecommerce
+                  <div className="absolute right-8">
+                    {isDropdownEcommerceOpen ? (
+                      <svg
+                        className="w-5 h-4 text-gray-800 dark:text-white"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="1"
+                          d="m5 15 7-7 7 7"
+                        />
+                      </svg>
+                    ) : (
+                      <svg
+                        className="w-5 h-4 text-gray-800 dark:text-white"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="1"
+                          d="m19 9-7 7-7-7"
+                        />
+                      </svg>
+                    )}
+                  </div>
+                </Link>
+              </div>
+              {isDropdownEcommerceOpen && (
+                <ul className="nav flex-column">
+                  <li>
+                    <Link
+                      to="#"
+                      className="flex items-center text-sm w-full p-2 text-gray-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-600"
+                    >
+                      Products
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      to="#"
+                      className="flex items-center text-sm w-full p-2 text-gray-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-600"
+                    >
+                      Product Detail
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      to="#"
+                      className="flex items-center text-sm w-full p-2 text-gray-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-600"
+                    >
+                      Add Product
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      to="#"
+                      className="flex items-center text-sm w-full p-2 text-gray-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-600"
+                    >
+                      Orders
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      to="#"
+                      className="flex items-center text-sm w-full p-2 text-gray-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-600"
+                    >
+                      Orders Detail
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      to="#"
+                      className="flex items-center text-sm w-full p-2 text-gray-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-600"
+                    >
+                      Shopping cart
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      to="#"
+                      className="flex items-center text-sm w-full p-2 text-gray-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-600"
+                    >
+                      Checkout
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      to="#"
+                      className="flex items-center text-sm w-full p-2 text-gray-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-600"
+                    >
+                      Customer
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      to="#"
+                      className="flex items-center text-sm w-full p-2 text-gray-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-600"
+                    >
+                      Seller
+                    </Link>
+                  </li>
+                </ul>
+              )}
+            </li>
+          </ul>
+        </div>
       </div>
 
       <div className={`p-4 mt-16 ${isSidebarOpen ? "ml-[16rem]" : ""}`}>
-    
-        <div className="rounded-md" style={{ background: "rgb(114 93 255)" }}>
-          <div className="row mb-5 ">
-            <div className="col-lg-12 col-md-12 col-12">
-              <div className="p-6 d-lg-flex justify-content-between align-items-center ">
-                <div className="d-md-flex align-items-center">
-                  <img src={Img} alt="" className="rounded-circle w-16" />
-                  <div className="ms-md-4 mt-3 mt-md-0 ml-2">
-                    <h3 className="text-white mb-0">
-                      Good afternoon, Jitu Chauhan
-                    </h3>
-                    <small className="text-white">
-                      {" "}
-                      Here is what’s happening with your projects today:
-                    </small>
-                  </div>
-                </div>
-                <button className="border mt-4 mb-4 p-1 bg-white rounded-md">
-                  <Link to="#!" className="">
-                    <div className="text-black">What’s New!</div>
-                  </Link>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-xl-6 col-md-12 col-12 mb-5">
-            <div className="grid grid-rows-2 grid-flow-col gap-4 ">
-              <div className="col">
-                <div className="card h-100 card-lift">
-                  <div className="card-body rounded-md border shadow">
-                    <div className="d-flex justify-content-between align-items-center">
-                      <span className="fw-semi-bold ">Bounce Rate [Avg]</span>
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          className="feather feather-activity text-gray-400"
-                        >
-                          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                        </svg>
-                      </span>
-                    </div>
-                    <div className="mt-4 mb-2 ">
-                      <h3 className="fw-bold mb-0">47.74%</h3>
-                    </div>
-                    <span className="text-danger ">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        className="feather feather-arrow-down me-1 icon-xs"
-                      >
-                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                        <polyline points="19 12 12 19 5 12"></polyline>
-                      </svg>
-                      -26.50%
-                    </span>
-                    <small>vs 66.88(prev.)</small>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col">
-                <div className="card h-100 card-lift">
-                  <div className="card-body rounded-md border shadow">
-                    <div className="d-flex justify-content-between align-items-center">
-                      <span className="fw-semi-bold ">New Sessions</span>
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          className="feather feather-pie-chart text-gray-400"
-                        >
-                          <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
-                          <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
-                        </svg>
-                      </span>
-                    </div>
-                    <div className="mt-4 mb-2 ">
-                      <h3 className="fw-bold mb-0">76.40%</h3>
-                    </div>
-                    <span className=" text-success ">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        className="feather feather-arrow-up me-1 icon-xs"
-                      >
-                        <line x1="12" y1="19" x2="12" y2="5"></line>
-                        <polyline points="5 12 12 5 19 12"></polyline>
-                      </svg>
-                      -2.50%
-                    </span>
-                    <small>vs 74.60(prev.)</small>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col">
-                <div className="card h-100 card-lift">
-                  <div className="card-body rounded-md border shadow">
-                    <div className="d-flex justify-content-between align-items-center">
-                      <span className="fw-semi-bold ">Pageviews [Avg]</span>
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          className="feather feather-send text-gray-400"
-                        >
-                          <line x1="22" y1="2" x2="11" y2="13"></line>
-                          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                        </svg>
-                      </span>
-                    </div>
-                    <div className="mt-4 mb-2 ">
-                      <h3 className="fw-bold mb-0">2.15</h3>
-                    </div>
-                    <span className="text-danger ">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        className="feather feather-arrow-down me-1 icon-xs"
-                      >
-                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                        <polyline points="19 12 12 19 5 12"></polyline>
-                      </svg>
-                      -1.83%
-                    </span>
-                    <small>vs 2.19 (prev.)</small>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col">
-                <div className="card h-100 card-lift">
-                  <div className="card-body rounded-md border shadow">
-                    <div className="d-flex justify-content-between align-items-center">
-                      <span className="fw-semi-bold ">Time on Site [Avg]</span>
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          className="feather feather-clock text-gray-400"
-                        >
-                          <circle cx="12" cy="12" r="10"></circle>
-                          <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                      </span>
-                    </div>
-                    <div className="mt-4 mb-2 ">
-                      <h3 className="fw-bold mb-0">2m:15s</h3>
-                    </div>
-                    <span className="text-success ">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        className="feather feather-arrow-up me-1 icon-xs"
-                      >
-                        <line x1="12" y1="19" x2="12" y2="5"></line>
-                        <polyline points="5 12 12 5 19 12"></polyline>
-                      </svg>
-                      21.50%
-                    </span>
-                    <small>vs 2.19 (prev.)</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-xl-6 col-md-12 col-12 mb-5">
-            <div className="card h-100">
-              <div className="card-body rounded-md border shadow">
-                <h4 className="mb-0">Session by Device Type</h4>
-                <div className="row row-cols-lg-3  my-8">
-                  <div className="col">
-                    <div>
-                      <h4 className="mb-3">Desktop</h4>
-                      <div className="lh-1">
-                        <h4 className="fs-2 fw-bold text-info mb-0 ">51.5%</h4>
-                        <span className="text-info">201,434</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col">
-                    <div>
-                      <h4 className="mb-3">Mobile</h4>
-                      <div className="lh-1">
-                        <h4 className="fs-2 fw-bold text-success mb-0 ">
-                          34.4%
-                        </h4>
-                        <span className="text-success">134,693</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col">
-                    <div>
-                      <h4 className="mb-3">Tablet</h4>
-                      <div className="lh-1">
-                        <h4 className="fs-2 fw-bold text-warning mb-0 ">
-                          20.8%
-                        </h4>
-                        <span className="text-warning">81,525</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-6 mb-3">
-                  <div className="progress" style={{ height: "40px" }}>
-                    <div
-                      className="progress-bar bg-info"
-                      role="progressbar"
-                      aria-label="Segment one"
-                      style={
-                        {
-                          width: "35%",
-                          "aria-valuenow": "35",
-                          "aria-valuemin": "0",
-                          "aria-valuemax": "100",
-                        } as any
-                      }
-                    ></div>
-
-                    <div
-                      className="progress-bar bg-success"
-                      role="progressbar"
-                      aria-label="Segment two"
-                      style={
-                        {
-                          width: "40%",
-                          "aria-valuenow": "40",
-                          "aria-valuemin": "0",
-                          "aria-valuemax": "100",
-                        } as any
-                      }
-                    ></div>
-                    <div
-                      className="progress-bar bg-warning"
-                      role="progressbar"
-                      aria-label="Segment three"
-                      style={
-                        {
-                          width: "25%",
-                          "aria-valuenow": "25",
-                          "aria-valuemin": "0",
-                          "aria-valuemax": "100",
-                        } as any
-                      }
-                    ></div>
-                  </div>
-                </div>
-                <div>
-                  <small>
-                    <span className="mdi mdi-lightbulb-outline me-1"></span>How
-                    perfformed over the last 30 days?
-                  </small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <MainBody />
       </div>
     </>
   );
