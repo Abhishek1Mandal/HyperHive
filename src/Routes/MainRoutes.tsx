@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import "../Components/CSS/TailWind.css";
 import Navbar from "../UserDashBoard/Navbar";
 import Test from "../UserDashBoard/test";
 
