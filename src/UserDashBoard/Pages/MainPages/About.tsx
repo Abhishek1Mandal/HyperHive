@@ -17,7 +17,7 @@ export default function About() {
     <>
       {/* ======= About Us Section =======  */}
       <section id="about">
-        <div className="container" data-aos="fade-up">
+        <div className="container mt-16" data-aos="fade-up">
           <header className="section-header">
             <h3>About Us</h3>
             <p>
@@ -95,7 +95,7 @@ export default function About() {
 
       {/* ======= Services Section =======  */}
       <section id="services">
-        <div className="container" data-aos="fade-up">
+        <div className="container mt-16" data-aos="fade-up">
           <header className="section-header wow fadeInUp">
             <h3>Services</h3>
             <p>

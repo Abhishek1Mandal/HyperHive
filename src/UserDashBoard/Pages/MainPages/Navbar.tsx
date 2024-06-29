@@ -131,10 +131,31 @@ const Carousel: React.FC = () => {
                   </li>
 
                   <li>
+                    <button
+                      onClick={() => {
+                        handleItemClick("contact");
+                        const contactNavbar =
+                          document.getElementById("contact");
+                        if (contactNavbar) {
+                          contactNavbar.scrollIntoView({ behavior: "smooth" });
+                        }
+                      }}
+                      className={`block py-2 px-3 ${
+                        activeItem === "contact"
+                          ? "text-green-600"
+                          : "text-white"
+                      } rounded`}
+                    >
+                      Contact
+                    </button>
+                  </li>
+
+                  <li>
                     <Link className="nav-link  " to="blog.html">
                       Blog
                     </Link>
                   </li>
+
                   <li className="dropdown">
                     <Link to="#">
                       <span>Drop Down</span>{" "}
@@ -177,11 +198,6 @@ const Carousel: React.FC = () => {
                         <Link to="#">Drop Down 4</Link>
                       </li>
                     </ul>
-                  </li>
-                  <li>
-                    <Link className="nav-link scrollto" to="#contact">
-                      Contact
-                    </Link>
                   </li>
                 </ul>
                 <i className="bi bi-list mobile-nav-toggle"></i>

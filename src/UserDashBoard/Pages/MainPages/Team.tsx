@@ -7,7 +7,7 @@ export default function Team() {
     <>
       {/* ======= Team Section =======  */}
       <section id="team">
-        <div className="container mx-auto px-4" data-aos="fade-up">
+        <div className="container mt-16 mx-auto px-4" data-aos="fade-up">
           <div className="section-header text-center mb-8">
             <h3>Team</h3>
             <p>

@@ -21,7 +21,7 @@ const Portfolio = () => {
     <>
       {/* ======= Portfolio Section ======= */}
       <section id="portfolio" className="section-bg">
-        <div className="container" data-aos="fade-up">
+        <div className="container mt-16" data-aos="fade-up">
           <header className="section-header">
             <h3 className="section-title">Our Portfolio</h3>
           </header>
