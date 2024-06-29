@@ -1,12 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import MainRoutes from "./Routes/MainRoutes";
+import MainPagesRoutes from "./Routes/MainPagesRoutes";
+import DashBoardRoutes from "./Routes/DashBoardRoutes";
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/*" element={<MainRoutes />} />
+        <Route path="/*" element={<MainPagesRoutes />} />
+        <Route path="/dashboard*" element={<DashBoardRoutes />} />
       </Routes>
     </Router>
   );

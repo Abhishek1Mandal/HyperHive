@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Img from "../../Components/img/avatar-2.jpg";
+import Img from "../../../Components/img/avatar-2.jpg";
 
-export default function MainBody() {
+export default function DashBoardNavbar() {
   const [showBox, setShowBox] = useState(true);
 
   const handleCloseBox = () => {
@@ -31,7 +31,7 @@ export default function MainBody() {
                   <img src={Img} alt="" className="rounded-circle w-16" />
                   <div className="ms-md-4 mt-3 mt-md-0 ml-2">
                     <h3 className="text-white mb-0">
-                      Good afternoon, Jitu Chauhan
+                      Good Day, Abhishek
                     </h3>
                     <small className="text-white">
                       {" "}

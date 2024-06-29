@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import NavBarLogics from "./Logics/NavBarLogics";
-import MainBody from "./Pages/MainBody";
+import NavBarLogics from "../../Logics/DashBoard";
+import MainBody from "./DashBoard";
 
-import Img1 from "../Components/img/avatar-1.jpg";
+import Img1 from "../../../Components/img/avatar-1.jpg";
 
 export default function Navbar() {
   const {
