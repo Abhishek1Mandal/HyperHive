@@ -4,11 +4,12 @@
 
 <!-- ![license](https://img.shields.io/badge/license-MIT-blue.svg) -->
 
-![GitHub open issues](https://img.shields.io/github/issues/Abhishek1Mandal/HyperHive?style=flat-square&logo=github&label=Open%20Issues&labelColor=orange&color=red) (https://github.com/Abhishek1Mandal/HyperHive/issues?q=is%3Aopen+is%3Aissue)
+[![GitHub open issues](https://img.shields.io/github/issues/Abhishek1Mandal/HyperHive?style=flat-square&logo=github&label=Open%20Issues&labelColor=orange&color=red)](https://github.com/Abhishek1Mandal/HyperHive/issues?q=is%3Aopen+is%3Aissue)
+
 
 <p>&nbsp;</p>
 
-[<img alt="HyperHive" src="https://github.com/Abhishek1Mandal/HyperHive/blob/main/src/Components/img/facts-img.png" /> ] (https://github.com/Abhishek1Mandal/HyperHive)
+[<img alt="HyperHive" src="https://github.com/Abhishek1Mandal/HyperHive/blob/main/src/Components/img/facts-img.png" /> ](https://github.com/Abhishek1Mandal/HyperHive)
 
 <p>&nbsp;</p>
 
