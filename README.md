@@ -1,11 +1,9 @@
 # [HyperHive ⚡️] ![GitHub stars](https://img.shields.io/github/stars/Abhishek1Mandal/HyperHive?style=social&logo=github&label=GitHub%20Stars)
 
 ![version](https://img.shields.io/badge/version-1.1.1-brightgreen.svg)
-
-<!-- ![license](https://img.shields.io/badge/license-MIT-blue.svg) -->
-
 [![GitHub open issues](https://img.shields.io/github/issues/Abhishek1Mandal/HyperHive?style=flat-square&logo=github&label=Open%20Issues&labelColor=orange&color=red)](https://github.com/Abhishek1Mandal/HyperHive/issues?q=is%3Aopen+is%3Aissue)
 
+<!-- ![license](https://img.shields.io/badge/license-MIT-blue.svg) -->
 
 <p>&nbsp;</p>
 
