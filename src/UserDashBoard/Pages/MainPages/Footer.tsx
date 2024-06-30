@@ -16,7 +16,7 @@ export default function Footer() {
           <div className="container mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <div className="footer-info">
-                <h3 className="text-xl font-bold">BizPage</h3>
+                <h3 className="text-xl font-bold">HyperHive</h3>
                 <p className="mt-4">
                   Cras fermentum odio eu feugiat lide par naso tierra. Justo
                   eget nada terra videa magna derita valies darta donna mare
@@ -190,7 +190,7 @@ export default function Footer() {
 
         <div className="bg-gray-900 py-2">
           <div className="container mx-auto text-center text-sm text-gray-400">
-            &copy; Copyright <strong className="text-white">BizPage</strong>.
+            &copy; Copyright <strong className="text-white">HyperHive</strong>.
             All Rights Reserved
           </div>
           <div className="container mx-auto text-center text-sm text-gray-400 mt-1">

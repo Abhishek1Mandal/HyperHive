@@ -35,7 +35,20 @@ const Carousel: React.FC = () => {
           <div className="row justify-content-center align-items-center">
             <div className="col-xl-11 d-flex align-items-center justify-content-between">
               <h1 className="logo">
-                <Link to="index.html">BizPage</Link>
+                <button
+                  onClick={() => {
+                    handleItemClick("HyperHive");
+                    const contactNavbar = document.getElementById("hero");
+                    if (contactNavbar) {
+                      contactNavbar.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                  className={`block py-2 px-3 ${
+                    activeItem === "HyperHive" ? "text-white" : "text-white"
+                  } rounded`}
+                >
+                  HyperHive
+                </button>
               </h1>
               <nav id="Navbar" className="navbar">
                 <ul>
