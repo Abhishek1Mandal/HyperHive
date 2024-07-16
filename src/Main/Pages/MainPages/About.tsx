@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import Img1 from "../../../Components/img/about-mission.jpg";
 import Img2 from "../../../Components/img/about-plan.jpg";
 import Img3 from "../../../Components/img/about-vision.jpg";
-import Img4 from "../../../Components/img/facts-img.png";
+import Img4 from "../../../Components/img/fact-sc.png";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS styles
 import CountUp from "react-countup";

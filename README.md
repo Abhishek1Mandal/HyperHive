@@ -7,7 +7,7 @@
 
 <p>&nbsp;</p>
 
-[<img alt="HyperHive" src="https://github.com/Abhishek1Mandal/HyperHive/blob/main/src/Components/img/facts-img.png" /> ](https://github.com/Abhishek1Mandal/HyperHive)
+[<img alt="HyperHive" src="https://github.com/Abhishek1Mandal/HyperHive/blob/main/src/Components/img/fact-sc.png" /> ](https://github.com/Abhishek1Mandal/HyperHive)
 
 <p>&nbsp;</p>
 
