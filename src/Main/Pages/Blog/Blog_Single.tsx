@@ -11,6 +11,7 @@ import Img9 from "../../../Components/img/blog/blog-recent-2.jpg";
 import Img10 from "../../../Components/img/blog/blog-recent-3.jpg";
 import Img11 from "../../../Components/img/blog/blog-recent-4.jpg";
 import Img12 from "../../../Components/img/blog/blog-recent-5.jpg";
+import Footer from "../MainPages/Footer";
 
 export default function Blog_Single() {
   return (
@@ -503,6 +504,7 @@ export default function Blog_Single() {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 }

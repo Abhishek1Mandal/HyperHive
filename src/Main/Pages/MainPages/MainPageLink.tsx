@@ -4,6 +4,7 @@ import About from "./About";
 import Portfolio from "./Portfolio";
 import Team from "./Team";
 import Contact from "./Contact";
+import Footer from "./Footer";
 
 export default function MainPageLink() {
   return (
@@ -17,6 +18,7 @@ export default function MainPageLink() {
           <Team />
           <Contact />
         </main>
+        <Footer />
       </>
     </>
   );

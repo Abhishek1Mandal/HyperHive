@@ -8,6 +8,7 @@ import Img6 from "../../../Components/img/blog/blog-recent-2.jpg";
 import Img7 from "../../../Components/img/blog/blog-recent-3.jpg";
 import Img8 from "../../../Components/img/blog/blog-recent-4.jpg";
 import Img9 from "../../../Components/img/blog/blog-recent-5.jpg";
+import Footer from "../MainPages/Footer";
 
 export default function Blog() {
   return (
@@ -357,6 +358,7 @@ export default function Blog() {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 }

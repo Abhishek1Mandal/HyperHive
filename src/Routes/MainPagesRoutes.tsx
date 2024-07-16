@@ -9,7 +9,6 @@ import "../Components/vendor/bootstrap-icons/bootstrap-icons.css";
 import "../Components/vendor/glightbox/css/glightbox.min.css";
 import "../Components/vendor/aos/aos.css";
 import "../Components/vendor/swiper/swiper-bundle.min.css";
-import Footer from "../Main/Pages/MainPages/Footer";
 import Blog from "../Main/Pages/Blog/Blog";
 import BlogSingle from "../Main/Pages/Blog/Blog_Single";
 
@@ -21,7 +20,6 @@ const FrontendRoute = () => {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog_single" element={<BlogSingle />} />
       </Routes>
-      <Footer />
     </>
   );
 };
