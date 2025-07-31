@@ -5,7 +5,7 @@ import DashBoard from "../Main/Pages/DashBoard/DashBoardNavbar";
 const FrontendRoute = () => {
   return (
     <Routes>
-      <Route path="/user" element={<DashBoard />} />
+      <Route path="/" element={<DashBoard />} />
     </Routes>
   );
 };

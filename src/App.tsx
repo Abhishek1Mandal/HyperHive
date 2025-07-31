@@ -7,8 +7,8 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/HyperHive*" element={<MainPagesRoutes />} />
-        <Route path="/dashboard*" element={<DashBoardRoutes />} />
+        <Route path="/*" element={<MainPagesRoutes />} />
+        <Route path="/dashboard/*" element={<DashBoardRoutes />} />
       </Routes>
     </Router>
   );
