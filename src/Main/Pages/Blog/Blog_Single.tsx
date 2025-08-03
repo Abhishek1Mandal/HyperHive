@@ -21,10 +21,10 @@ export default function Blog_Single() {
         <div className="container">
           <ol>
             <div>
-              <Link to="index.html">Home</Link>
+              <Link to="/HyperHive">Home</Link>
             </div>
             <li>
-              <Link to="blog.html">Blog</Link>
+              <Link to="/HyperHive/blog">Blog</Link>
             </li>
           </ol>
           <h2>Blog Single</h2>

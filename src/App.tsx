@@ -7,7 +7,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/*" element={<MainPagesRoutes />} />
+        <Route path="/HyperHive/*" element={<MainPagesRoutes />} />
         <Route path="/dashboard/*" element={<DashBoardRoutes />} />
       </Routes>
     </Router>

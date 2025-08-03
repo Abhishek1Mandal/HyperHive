@@ -17,7 +17,7 @@ export default function Blog() {
       <section className="">
         <div className="container">
           <div>
-            <Link to="/">Home</Link>
+            <Link to="/HyperHive">Home</Link>
           </div>
           <h2>Blog</h2>
         </div>
@@ -66,7 +66,7 @@ export default function Blog() {
                     assumenda perferendis dolore.
                   </p>
                   <div className="read-more">
-                    <Link to="/blog_single">Read More</Link>
+                    <Link to="/HyperHive/blog_single">Read More</Link>
                   </div>
                 </div>
               </article>
@@ -110,7 +110,7 @@ export default function Blog() {
                     odio quos distinctio.
                   </p>
                   <div className="read-more">
-                    <Link to="/blog_single">Read More</Link>
+                    <Link to="/HyperHive/blog_single">Read More</Link>
                   </div>
                 </div>
               </article>
@@ -152,7 +152,7 @@ export default function Blog() {
                     at recusandae nesciunt. Ut dolores velit.
                   </p>
                   <div className="read-more">
-                    <Link to="/blog_single">Read More</Link>
+                    <Link to="/HyperHive/blog_single">Read More</Link>
                   </div>
                 </div>
               </article>
@@ -197,7 +197,7 @@ export default function Blog() {
                     ducimus sint id earum ut nesciunt sed corrupti nemo.
                   </p>
                   <div className="read-more">
-                    <Link to="/blog_single">Read More</Link>
+                    <Link to="/HyperHive/blog_single">Read More</Link>
                   </div>
                 </div>
               </article>
