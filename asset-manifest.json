@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/HyperHive/static/css/main.be5c719f.css",
-    "main.js": "/HyperHive/static/js/main.b0923c54.js",
+    "main.css": "/HyperHive/static/css/main.cdc7c89c.css",
+    "main.js": "/HyperHive/static/js/main.af1264fb.js",
     "static/js/453.39c3252d.chunk.js": "/HyperHive/static/js/453.39c3252d.chunk.js",
     "static/media/fact-sc.png": "/HyperHive/static/media/fact-sc.f3c293972cae150b4da2.png",
     "static/media/4.jpg": "/HyperHive/static/media/4.9a3ea0396f8ba4e9b287.jpg",
@@ -46,12 +46,12 @@
     "static/media/avatar-2.jpg": "/HyperHive/static/media/avatar-2.0bed73e1ec36c6a43a9e.jpg",
     "static/media/comments-2.jpg": "/HyperHive/static/media/comments-2.6feb2b265109deaad7c5.jpg",
     "index.html": "/HyperHive/index.html",
-    "main.be5c719f.css.map": "/HyperHive/static/css/main.be5c719f.css.map",
-    "main.b0923c54.js.map": "/HyperHive/static/js/main.b0923c54.js.map",
+    "main.cdc7c89c.css.map": "/HyperHive/static/css/main.cdc7c89c.css.map",
+    "main.af1264fb.js.map": "/HyperHive/static/js/main.af1264fb.js.map",
     "453.39c3252d.chunk.js.map": "/HyperHive/static/js/453.39c3252d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.be5c719f.css",
-    "static/js/main.b0923c54.js"
+    "static/css/main.cdc7c89c.css",
+    "static/js/main.af1264fb.js"
   ]
 }
